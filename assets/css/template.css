@@ -1,0 +1,227 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.leftMenu {
+    width: 200px;
+    background-color: #1f232a;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.container {
+    width: 100%;
+    padding-left: 200px;
+}
+
+.companyName{
+    height: 100px;
+    line-height: 100px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+}
+
+.topMenu {
+    height: 40px;
+    background-color: #232830;
+    color: #fff;
+    padding-left: 200px;
+}
+
+.topRight {
+    float: right;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+}
+
+.topRight a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menuArea ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #fff;
+}
+
+.menuArea li {
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+    padding: 0 0 0 30px;
+}
+
+.menuArea li:hover {
+    background-color: #000;
+}
+
+.menuArea li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.areaTemplate {
+    padding: 15px;
+}
+
+.tabArea {
+    height: 35px;
+}
+
+.tabItem {
+    float: left;
+    width: 50%;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #000;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.activeTab {
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
+    border-top: 1px solid #000;
+}
+
+.tabBody {
+    display: none;
+    padding: 20px 0 0 0;
+}
+
+table {
+    margin: 15px 0 0 0;
+}
+
+table th {
+    height: 35px;
+    line-height: 35px;
+    background-color: #ddd;
+    text-align: left;
+    padding: 0 10px;
+}
+
+table td {
+    height: 35px;
+    line-height: 35px;
+    background-color: #eee;
+    text-align: left;
+    padding: 0 10px;
+    border: 1px solid #fff;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+select,
+textarea {
+    height: 32px;
+    font-size: 13px;
+    outline: 0;
+    padding: 0 5px;
+    width: 100%;
+}
+
+textarea {
+    height: 100px;
+    border: 1px solid #bbb;
+}
+
+input[type=submit],
+button,
+.button {
+    border: 0px;
+    background-color: #224074;
+    color: #fff;
+    height: 35px;
+    border-radius: 4px;
+    padding: 0 20px;
+    opacity: 0.75;
+    transition: 0.5s;
+    font-size: 13px;
+    display: inline-block;
+    line-height: 35px;
+}
+
+input[type=submit]:hover,
+button:hover,
+.button:hover {
+    background-color: #082250;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.button_small {
+    height: 25px;
+    line-height: 25px;
+}
+
+.button a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.p_item {
+    height: 25px;
+    line-height: 25px;
+}
+
+.warn {
+    padding: 15px;
+    background-color: #ff6868;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #fff;
+}
+
+.pagination {
+    margin: 20px 0;
+}
+
+.pag_item {
+    width: 20px;
+    height: 20px;
+    float: left;
+    border: 1px solid #000;
+    margin-right: 3px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.pag_item a {
+    color: #000;
+    text-decoration: none;
+}
+
+.pag_ativo {
+    background-color: #224074;
+}
+
+.pag_ativo a {
+    color: #fff;
+}
+
+#busca {
+    width: 100px;
+    float: right;
+    background-image: url('../images/search2.png');
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 5px;
+    border: 1px solid #ccc;
+    padding-left: 25px;
+    border-radius: 3px;
+}
