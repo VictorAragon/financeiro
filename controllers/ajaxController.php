@@ -18,10 +18,10 @@ class ajaxController extends controller {
         $u->setLoggedUser();
         $c = new ClientsModel();
 
-        if(isset($_GET['q']) && !empty($_GET['q'])) {
-            $q = addslashes($_GET['q']);
+        if(isset($_GET['a']) && !empty($_GET['a'])) {
+            $a = addslashes($_GET['a']);
 
-            $data = $c->searchClientByName($q, $u->getCompany());
+            $data = $c->searchClientByName($a, $u->getCompany());
             
         }
 
