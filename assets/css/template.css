@@ -227,8 +227,26 @@ button:hover,
 }
 
 .searchresults {
-    width: 250px;
-    height: 200px;
+    width: 349px;
     background-color: #fff;
     position: absolute;
+    border: 1px solid #ccc;
+    z-index: 2;
+}
+
+.si {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.si a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+}
+
+.si:hover {
+    background-color: #eee;
 }

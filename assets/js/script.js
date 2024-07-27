@@ -21,22 +21,38 @@ $(function(){
                 width: '100px'
             }, 'fast');
         }
+
+        setTimeout(function() {
+            $('.searchresults').hide();
+        }, 300);
     });
 
     $('#busca').on('keyup', function() {
         let datatype = $(this).attr('data-type');
-        let q = $(this).val();
+        let a = $(this).val();
 
         if(datatype != '') {
             $.ajax({
                 url:BASE_URL+'/ajax/'+datatype,
                 type:'GET',
-                data:{q:q},
+                data:{a:a},
                 dataType:'json',
                 success:function(json){
-                    if( $('.seachresults').length == 0 ) {
+                    if( $('.searchresults').length == 0 ) {
                         $('#busca').after('<div class="searchresults"></div>');
                     }
+
+                    $('.searchresults').css('left', $('#busca').offset().left+'px');
+                    $('.searchresults').css('top', $('#busca').offset().top+$('#busca').height()+3+'px');
+
+                    let html = '';
+
+                    for(let i in json) {
+                        html += '<div class="si"><a href="'+json[i].link+'">'+json[i].name+'</a></div>';
+                    }
+
+                    $('.searchresults').html(html);
+                    $('.searchresults').show();
                 }
             });
         }

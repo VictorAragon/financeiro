@@ -21,7 +21,14 @@ class ajaxController extends controller {
         if(isset($_GET['a']) && !empty($_GET['a'])) {
             $a = addslashes($_GET['a']);
 
-            $data = $c->searchClientByName($a, $u->getCompany());
+            $clients = $c->searchClientByName($a, $u->getCompany());
+
+            foreach($clients AS $v) {
+                $data[] = array(
+                    'name' => $v['name'],
+                    'link' => BASE_URL.'/clients/edit/'.$v['id']
+                );
+            }
             
         }
 
