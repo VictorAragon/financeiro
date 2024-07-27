@@ -225,3 +225,10 @@ button:hover,
     padding-left: 25px;
     border-radius: 3px;
 }
+
+.searchresults {
+    width: 250px;
+    height: 200px;
+    background-color: #fff;
+    position: absolute;
+}

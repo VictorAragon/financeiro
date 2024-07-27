@@ -37,8 +37,6 @@ $(function(){
                     if( $('.seachresults').length == 0 ) {
                         $('#busca').after('<div class="searchresults"></div>');
                     }
-
-
                 }
             });
         }
