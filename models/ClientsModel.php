@@ -77,7 +77,7 @@ class ClientsModel extends model {
         return $r;
     }
 
-    public function add($id_company, $name, $email, $phone, $stars, $internal_obs, $addressZipcode, $address, $addressNumber, $addressComplement, $addressNeighborhood, $addressCity, $addressState) {
+    public function add($id_company, $name, $email, $phone=null, $stars='3', $internal_obs=null, $addressZipcode=null, $address=null, $addressNumber=null, $addressComplement=null, $addressNeighborhood=null, $addressCity=null, $addressState=null) {
         $id_inserido = '';
         $sql = $this->db->prepare("INSERT INTO clients SET idCompany = :id_company, name = :name, email = :email, phone = :phone, stars = :stars, internal_obs = :internal_obs");
         $sql->bindValue(":id_company", $id_company);
@@ -102,6 +102,8 @@ class ClientsModel extends model {
             $sql->bindValue(":addressState", $addressState);
             $sql->execute();
         }
+
+        return $id_inserido;
     }
 
     public function edit($id, $id_company, $name, $email, $phone, $stars, $internal_obs, $addressZipcode, $address, $addressNumber, $addressComplement, $addressNeighborhood, $addressCity, $addressState) {
@@ -132,7 +134,7 @@ class ClientsModel extends model {
     public function searchClientByName($name, $id_company) {
         $array = array();
 
-        $sql = $this->db->prepare("SELECT clients.name, clients.id FROM clients WHERE name LIKE :name AND idCompany = :id_company LIMIT 10");
+        $sql = $this->db->prepare("SELECT clients.name, clients.id, clients.email FROM clients WHERE name LIKE :name AND idCompany = :id_company LIMIT 10");
         $sql->bindValue(":name", '%'.$name.'%');
         $sql->bindValue(":id_company", $id_company);
         $sql->execute();

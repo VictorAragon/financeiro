@@ -25,10 +25,29 @@ class ajaxController extends controller {
 
             foreach($clients AS $v) {
                 $data[] = array(
-                    'name' => $v['name'],
-                    'link' => BASE_URL.'/clients/edit/'.$v['id']
+                    'name'  => $v['name'],
+                    'link'  => BASE_URL.'/clients/edit/'.$v['id'],
+                    'id'    => $v['id'],
+                    'email' => $v['email']
                 );
             }
+            
+        }
+
+        echo json_encode($data);
+    }
+
+    public function add_client() {
+        $data = array();
+        $u = new Users();
+        $u->setLoggedUser();
+        $c = new ClientsModel();
+
+        if(isset($_POST['name']) && !empty($_POST['name']) && isset($_POST['email']) && !empty($_POST['email'])) {
+            $name = addslashes($_POST['name']);
+            $email = $_POST['email'];
+
+            $data['id'] = $c->add($u->getCompany(), $name, $email);
             
         }
 
