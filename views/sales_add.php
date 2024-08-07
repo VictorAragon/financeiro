@@ -37,6 +37,24 @@
         </div>
     </div>
 
+    <hr>
+    <h4>Produtos</h4>
+    <fieldset>
+        <legend>Adicionar Produtos</legend>
+
+        <input type="text" id="add_prod" data-type="search_products" />
+    </fieldset>
+
+    <table border="0" width="100%" id="products_table">
+        <tr>
+            <th>Excluir</th>
+            <th>Nome do Produto</th>
+            <th>Quantidade</th>
+            <th>Preço Unit.</th>
+            <th>Subtotal</th>
+        </tr>
+    </table>
+
     <br/><br/>
 
     <input type="submit" value="Cadastrar" />

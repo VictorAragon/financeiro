@@ -261,3 +261,50 @@ button:hover,
     margin-left: 10px;
     margin-top: 5px;
 }
+
+.p_quant {
+    width: 50px !important;
+    float: left;
+}
+
+.btnLess {
+    width: 20px;
+    height: 20px;
+    background-color: #ff6868;
+    border-radius: 50px;
+    display: flex;
+    line-height: 20px;
+    padding-left: 7px;
+    font-size: 13px;
+    float: left;
+    margin-top: 7px;
+    margin-right: 6px;
+}
+
+.btnLess a {
+    text-decoration: none;
+    outline: none;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.btnMore {
+    width: 20px;
+    height: 20px;
+    background-color: #0c780d;
+    border-radius: 50px;
+    display: flex;
+    line-height: 20px;
+    padding-left: 6px;
+    font-size: 13px;
+    float: left;
+    margin-top: 7px;
+    margin-left: 6px;
+}
+
+.btnMore a {
+    text-decoration: none;
+    outline: none;
+    color: #FFF;
+    font-weight: bold;
+}

@@ -52,12 +52,13 @@ class salesController extends controller {
             if (isset($_POST['client_id']) && !empty($_POST['client_id'])) {
                 $client_id = addslashes($_POST['client_id']);
                 $status = addslashes($_POST['status']);
+                $quant = $_POST['quant'];
+                
                 $total_price = addslashes($_POST['total_price']);
-
                 $total_price = str_replace('.','',$total_price);
                 $total_price = str_replace(',','.',$total_price);
 
-                $s->addSale($u->getCompany(), $client_id, $u->getId(), $total_price, $status);
+                $s->addSale($u->getCompany(), $client_id, $u->getId(), $quant, $status);
                 header("Location: ".BASE_URL."/sales");
                 
             }
@@ -77,22 +78,21 @@ class salesController extends controller {
         $data["companyName"] = $company->getName();
         $data["userEmail"] = $u->getEmail();
 
-        if($u->hasPermission('users_view')) {
-            $p = new Permissions();
+        if($u->hasPermission('sales_view')) {
+            $s = new SalesModel();
 
-            if (isset($_POST['group']) && !empty($_POST['group'])) {
-                $pass = addslashes($_POST['password']);
-                $group = addslashes($_POST['group']);
+            if (isset($_POST['client_id']) && !empty($_POST['client_id'])) {
+                $client_id = addslashes($_POST['client_id']);
+                $status = addslashes($_POST['status']);
+                $quant = $_POST['quant'];
 
-                $a = $u->edit($pass, $group, $id, $u->getCompany());
-
-                header("Location: ".BASE_URL."/users");
+                $s->addSale($u->getCompany(), $client_id, $u->getId(), $quant, $status);
+                header("Location: ".BASE_URL."/sales");
             }
 
-            $data['user_info'] = $u->getInfo($id, $u->getCompany());
-            $data['group_list'] = $p->getGroupList($u->getCompany());
+            $data['sales_info'] = $s->getInfo($id, $u->getCompany());
 
-            $this->loadTemplate('users_edit', $data);
+            $this->loadTemplate('sales_edit', $data);
         } else {
             header("Location: ".BASE_URL);
         }

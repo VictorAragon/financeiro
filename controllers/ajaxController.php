@@ -37,6 +37,20 @@ class ajaxController extends controller {
         echo json_encode($data);
     }
 
+    public function search_products() {
+        $data = array();
+        $u = new Users();
+        $u->setLoggedUser();
+        $i = new InventoryModel();
+
+        if(isset($_GET['a']) && !empty($_GET['a'])) {
+            $a = addslashes($_GET['a']);
+            $data = $i->searchProductsByName($a, $u->getCompany());
+        }
+
+        echo json_encode($data);
+    }
+
     public function add_client() {
         $data = array();
         $u = new Users();

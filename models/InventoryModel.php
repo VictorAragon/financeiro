@@ -72,4 +72,28 @@ class InventoryModel extends model {
 
         $this->setLog($id, $id_company, $id_user, 'del');
     }
+
+    public function searchProductsByName($name, $id_company) {
+        $array = array();
+
+        $sql = $this->db->prepare("SELECT inventory.name, inventory.id, inventory.price FROM inventory WHERE name LIKE :name AND idCompany = :id_company LIMIT 10");
+        $sql->bindValue(":name", '%'.$name.'%');
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+
+        return $array;
+    }
+
+    public function downInventory($id_prod, $id_company, $quant_prod, $id_user) {
+        $sql = $this->db->prepare("UPDATE inventory SET quant = quant - $quant_prod WHERE id = :id AND idCompany = :id_company");
+        $sql->bindValue(":id", $id_prod);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+
+        $this->setLog($id_prod, $id_company, $id_user, 'dwn');
+    }
 }
