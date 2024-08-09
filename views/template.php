@@ -25,6 +25,7 @@
 					<li><a href="<?= BASE_URL; ?>/clients"><i class="fa fa-users"></i> Clientes</a></li>
 					<li><a href="<?= BASE_URL; ?>/inventory"><i class="fa fa-cubes"></i> Estoque</a></li>
 					<li><a href="<?= BASE_URL; ?>/sales"><i class="fa fa-shopping-cart"></i> Vendas</a></li>
+					<li><a href="<?= BASE_URL; ?>/purchases"><i class="fa fa-shopping-cart"></i> Compras</a></li>
 				</ul>
 			</div>
 		</div>

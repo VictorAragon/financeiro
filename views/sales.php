@@ -9,7 +9,6 @@
         <th>Status</th>
         <th>Valor Total</th>
         <th>Ações</th>
-        <th></th>
     </tr>
     <?php foreach($sales_list AS $v) { ?>
         <tr>
@@ -17,11 +16,8 @@
             <td><?=date('d/m/Y', strtotime($v['dateSale']));?></td>
             <td><?=$statusName[$v['status']];?></td>
             <td><?=number_format($v['totalPrice'], 2, ',', '.');?></td>
-            <td width="50">
-                <div class="button button_small"><a href="<?= BASE_URL;?>/sales/edit/<?= $v['id'];?>">Editar</div>
-            </td>
-            <td width="50">
-                <div class="button button_small"><a href="<?= BASE_URL;?>/sales/delete/<?= $v['id'];?>" onclick="return confirm('Deseja realmente excluir?')">Excluir</div>
+            <td width="145">
+                <div class="button button_small"><a href="<?= BASE_URL;?>/sales/edit/<?= $v['id'];?>">Mais Detalhes</div>
             </td>
         </tr>
         <?php

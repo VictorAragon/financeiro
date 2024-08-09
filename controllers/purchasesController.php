@@ -1,5 +1,5 @@
 <?php 
-class salesController extends controller {
+class purchasesController extends controller {
 
     public function __construct() {
         parent::__construct();
@@ -19,19 +19,19 @@ class salesController extends controller {
         $data["companyName"] = $company->getName();
         $data["userEmail"] = $u->getEmail();
 
-        $data["statusName"] = array(
-            '0'=>'Aguardando Pgto.',
-            '1'=>'Pago',
-            '2'=>'Vencido',
-        );
+        // $data["statusName"] = array(
+        //     '0'=>'Aguardando Pgto.',
+        //     '1'=>'Pago',
+        //     '2'=>'Vencido',
+        // );
 
-        if($u->hasPermission('sales_view')) {
-            $s = new SalesModel();
+        if($u->hasPermission('purchases_view')) {
+            $p = new PurchasesModel();
             $offset = 0;
 
-            $data['sales_list'] = $s->getList($offset, $u->getCompany());
+            $data['purchases_list'] = $p->getList($offset, $u->getCompany());
 
-            $this->loadTemplate('sales', $data);
+            $this->loadTemplate('purchases', $data);
         } else {
             header("Location: ".BASE_URL);
         }

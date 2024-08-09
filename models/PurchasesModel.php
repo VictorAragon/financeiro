@@ -1,18 +1,21 @@
 <?php
-class SalesModel extends model {
+class purchasesModel extends model {
     public function getList($offset, $id_company) {
         $array = array();
 
         $sql = $this->db->prepare("SELECT 
-            sales.id, 
-            sales.dateSale, 
-            sales.totalPrice, 
-            sales.status,
-            clients.name AS clientName
-        FROM sales 
-        LEFT JOIN clients ON clients.id = sales.idClient
-        WHERE sales.idCompany = :id_company
-        ORDER BY sales.dateSale DESC
+            purchases.id, 
+            purchases.datePurchase, 
+            purchases.totalPrice, 
+            purchases_products.name, 
+            purchases_products.quant, 
+            purchases_products.purchasePrice, 
+            users.name AS userName
+        FROM purchases 
+        INNER JOIN purchases_products ON purchases_products.idPurchase = purchases.id
+        INNER JOIN users ON users.id = purchases.idUser
+        WHERE purchases.idCompany = :id_company
+        ORDER BY purchases.datePurchase DESC
         LIMIT $offset, 10");
         $sql->bindValue(":id_company", $id_company);
         $sql->execute();
